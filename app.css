@@ -1,0 +1,59 @@
+
+body {
+  background: rgb(0, 0, 0); 
+  font-family: arial;
+  color: #FAFAFA;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+
+}
+
+ol {
+  list-style: none;
+}
+
+section{
+
+}
+aside{
+
+}
+
+.input-group{
+  width: 100%;
+}
+
+.img-texto, img{
+  width: 50%;
+}
+
+.navbar{
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  padding: 2%;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.video{
+  margin-top: 30%;
+}
+
+@media screen and (max-width:415px){
+  body{
+      background-image: none;
+      background-image: url("../img/fondo-mobil1.jpg");
+      width: 100%;
+      margin: 0% !important;
+  }
+
+  .navbar{
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    padding: 2%;
+    border-bottom: 1px solid rgb(255, 255, 255);
+  }
+  /* .input-group{
+    width: 90%;
+  } */
+}

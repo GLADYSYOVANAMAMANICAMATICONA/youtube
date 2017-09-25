@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Youtube jQuery</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="node_modules/youtube-api-search/index.js"></script>
+
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div row>
+                        <div class="col-md-3 hidden-xs">
+                            <img src="assets/img/texto.png" alt="">
+                        </div>
+                        <div class="col-md-9">
+                            <div class="input-group input-group-lg">
+                                <input type="text" class="form-control" placeholder="Nombre de video">
+                                <span class="input-group-addon"><i class="fa fa-search 3px" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+    </header>
+    <div class="row">
+        <section class="col-md-7">
+            <div id="youtubeVideo"></divid>></div>
+
+        </section>
+        <aside class="col-md-5">
+            <div class="video">
+                <ol id="root">
+
+                </ol>
+            </div>
+        </aside>
+    </div>
+    <div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
