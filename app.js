@@ -11,23 +11,29 @@ let app = {
 
       init: function () {
             // app.videoSearch("iPhone");
-            app.youtubeSearch("iPhone X");
+            app.youtubeSearch("iPhone X")
       },
-      //<iframe className="embed-responsive-item" src={url}> </iframe>
-      getVideoList: function (videos) {
+    
+        getVideoList: function (videos) {
             return videos.map((video, index) => {
                   const imageUrl = video.snippet.thumbnails.default.url;
                   const url = `https://www.youtube.com/embed/${video.id.videoId}`;
                   return `<li> 
                      <p> 
                         <iframe class="embed-responsive-item" src=${url}> </iframe>
+                        <p>${video.snippet.title}<p><hr><p>${video.snippet.description}</p>
                      </p>
                </li>`;
             });
       },
       youtubeSearch: function (searchTerm) {
             console.log(searchTerm);
-
+            $('#buscar').click(()=>{
+                  let nombreVideoABuscar = $('#input-buscar').val();
+                  console.log(nombreVideoABuscar);
+                  youtubeSearch(nombreVideoABuscar);
+               });
+               
             YTSearch({ key: API_KEY, term: searchTerm }, data => {
                   console.log("result", data);
                   app.result = {
@@ -39,6 +45,7 @@ let app = {
                   console.log("lis: ", list);
                   $("#root").append(list);
             });
+
       },
       videoSearch: function (searchTerm) {
             jQuery.getJSON("list.json", data => {

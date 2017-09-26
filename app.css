@@ -1,5 +1,8 @@
 
 body {
+
+  margin: 0px;
+  padding: 0px;
   background: rgb(0, 0, 0); 
   font-family: arial;
   color: #FAFAFA;
@@ -13,11 +16,8 @@ ol {
   list-style: none;
 }
 
-section{
-
-}
-aside{
-
+.row{
+  max-width: 100%;
 }
 
 .input-group{
