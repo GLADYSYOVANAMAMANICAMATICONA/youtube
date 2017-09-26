@@ -17,34 +17,30 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <div row>
-                        <div class="col-md-3 hidden-xs">
-                            <img src="assets/img/texto.png" alt="">
-                        </div>
-                        <div class="col-md-9">
-                            <div class="input-group input-group-lg">
-                                <input id="input-buscar" type="text" class="form-control" placeholder="Nombre de video">
-                                <span  id="buscar" class="input-group-addon"><i class="fa fa-search 3px" aria-hidden="true"></i></span>
-                            </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div row>
+                    <div class="col-md-3 hidden-xs">
+                        <img class="img-logo" src="assets/img/texto.png" alt="">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="input-group input-group-lg">
+                            <input id="input-buscar" type="text" class="form-control" placeholder="Buscar">
+                            <span id="buscar" class="input-group-addon"><i class="fa fa-search 3px" aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
-        </nav>
+            </div>
+    </nav>
     <div class="row">
-        <section class="col-md-7">
-            <div id="youtubeVideo"></div>
-
-        </section>
-        <aside class="col-md-5">
-            <div class="video">
+        <center>
+            <aside class="col-md-12">
                 <ol id="root">
 
                 </ol>
-            </div>
-        </aside>
+            </aside>
+        </center>
     </div>
 
     <script src="app.js"></script>
