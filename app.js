@@ -70,9 +70,9 @@ let app = {
             });
       }
 };
-// $('#buscar').click(() => {
-//       let nombreVideoABuscar = $('#input-buscar').val();
-//       // youtubeSearch(nombreVideoABuscar);
-// }),
+$('#buscar').click(function() {
+      let nombreVideoABuscar = $('#input-buscar').val();
+      app.youtubeSearch(nombreVideoABuscar);
+});
 
-$(document).ready(app.init);
+      $(document).ready(app.init);
