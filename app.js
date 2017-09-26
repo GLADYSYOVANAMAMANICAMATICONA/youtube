@@ -14,13 +14,7 @@ let app = {
             app.youtubeSearch("iPhone X")
       },
     
-      // $('#buscar').click(()=>{
-      //       let nombreVideoABuscar = $('#input-buscar').val();
-      //       console.log(nombreVideoABuscar);
-      //       youtubeSearch(nombreVideoABuscar);
-      //    });
-
-      getVideoList: function (videos) {
+        getVideoList: function (videos) {
             return videos.map((video, index) => {
                   const imageUrl = video.snippet.thumbnails.default.url;
                   const url = `https://www.youtube.com/embed/${video.id.videoId}`;
@@ -34,7 +28,12 @@ let app = {
       },
       youtubeSearch: function (searchTerm) {
             console.log(searchTerm);
-
+            $('#buscar').click(()=>{
+                  let nombreVideoABuscar = $('#input-buscar').val();
+                  console.log(nombreVideoABuscar);
+                  youtubeSearch(nombreVideoABuscar);
+               });
+               
             YTSearch({ key: API_KEY, term: searchTerm }, data => {
                   console.log("result", data);
                   app.result = {
@@ -46,6 +45,7 @@ let app = {
                   console.log("lis: ", list);
                   $("#root").append(list);
             });
+
       },
       videoSearch: function (searchTerm) {
             jQuery.getJSON("list.json", data => {
