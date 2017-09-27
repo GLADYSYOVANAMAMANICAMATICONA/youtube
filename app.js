@@ -16,6 +16,7 @@ let app = {
             $('#buscar').click(app.buscaVideo);
 
 
+
       },
       getVideoList: function (videos) {
             return videos.map((video, index) => {
@@ -25,12 +26,14 @@ let app = {
                   return `<li>                                                            
                         
                         <img class="media-object miniaturas" src=${imageUrl} />\ 
-                        <p>${video.snippet.title}<p><hr><p>${video.snippet.description}</p>
+                        <p>${video.snippet.title}<p><hr>
                       
            
                </li>`;
             });
       },
+      // <p>${video.snippet.description}</p>
+      
 
       buscaVideo: () => {
             let nombreVideoABuscar = $('#input-buscar').val();
@@ -52,8 +55,9 @@ let app = {
                   var list = app.getVideoList(app.result.videos);
                   console.log("lis: ", list);
                   $("#listaVideos").html(list);
+                  $("#listaVideos").click(app.clikearVideo);
+                  
             });
-
       },
 
       primerVideo:(video) =>{
@@ -62,6 +66,17 @@ let app = {
                   $("#video").html(`<iframe class="embed-responsive-item" src=${url}> </iframe>`)
 
       },
+
+      clikearVideo: (e) => {
+            let img= e.target.src;
+            console.log(img);
+            let indice;
+            app.result.videos.map((video, i) => {
+                return (img == video.snippet.thumbnails.default.url)? indice = i: '';
+            })
+           // console.log(evento.target.src)
+            app.primerVideo(app.result.videos[indice]);
+        },
 
       videoSearch: function (searchTerm) {
             jQuery.getJSON("list.json", data => {
