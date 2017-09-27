@@ -2,7 +2,7 @@
 body {
 
   margin: 0px;
-  padding: 0px;
+  padding: 3%;
   background: rgb(0, 0, 0); 
   font-family: arial;
   color: #FAFAFA;
@@ -12,19 +12,20 @@ body {
 
 }
 
-ol {
+ol, li {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
 
-aside{
+section{
   max-width: 100%;
   margin: 0px;
   padding: 0px;
   margin-top: 15%;
 
 }
+
 .row{
   max-width: 100%;
 }

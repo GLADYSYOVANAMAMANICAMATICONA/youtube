@@ -13,32 +13,32 @@ let app = {
       init: function () {
             // app.videoSearch("iPhone");
             app.youtubeSearch("iPhone X")
+            $('#buscar').click(app.buscaVideo);
+
+
 
       },
-
-
-
       getVideoList: function (videos) {
             return videos.map((video, index) => {
+  
                   const imageUrl = video.snippet.thumbnails.default.url;
                   const url = `https://www.youtube.com/embed/${video.id.videoId}`;
-                  return `<li> 
-          
-                     <div class="col-md-9">
-                        <iframe class="embed-responsive-item" width=100% src=${url}> </iframe>
-                     </div>
-                       
-                      <div class="col-md-3">                                                              
+                  return `<li>                                                            
                         
                         <img class="media-object miniaturas" src=${imageUrl} />\ 
-                        <p>${video.snippet.title}<p><hr><p>${video.snippet.description}</p>
-                      </div>
+                        <p>${video.snippet.title}<p><hr>
+                      
            
                </li>`;
             });
       },
+      // <p>${video.snippet.description}</p>
+      
 
-
+      buscaVideo: () => {
+            let nombreVideoABuscar = $('#input-buscar').val();
+            app.youtubeSearch(nombreVideoABuscar);
+      },
 
       youtubeSearch: function (searchTerm) {
             console.log(searchTerm);
@@ -49,12 +49,34 @@ let app = {
                         selectedVideo: data[0],
                         searchTerm: searchTerm
                   };
+
+                  app.primerVideo(app.result.videos[0])
+
                   var list = app.getVideoList(app.result.videos);
                   console.log("lis: ", list);
-                  $("#root").append(list[0]);
+                  $("#listaVideos").html(list);
+                  $("#listaVideos").click(app.clikearVideo);
+                  
             });
+      },
+
+      primerVideo:(video) =>{
+            console.log(video)
+                  const url = `https://www.youtube.com/embed/${video.id.videoId}`;
+                  $("#video").html(`<iframe class="embed-responsive-item" src=${url}> </iframe>`)
 
       },
+
+      clikearVideo: (e) => {
+            let img= e.target.src;
+            console.log(img);
+            let indice;
+            app.result.videos.map((video, i) => {
+                return (img == video.snippet.thumbnails.default.url)? indice = i: '';
+            })
+           // console.log(evento.target.src)
+            app.primerVideo(app.result.videos[indice]);
+        },
 
       videoSearch: function (searchTerm) {
             jQuery.getJSON("list.json", data => {
@@ -66,13 +88,9 @@ let app = {
                   };
                   var list = app.getVideoList(app.result.videos);
                   console.log("lis: ", list);
-                  $("#root").append(list);
+                  $("#root").html(list);
             });
       }
 };
-$('#buscar').click(function() {
-      let nombreVideoABuscar = $('#input-buscar').val();
-      app.youtubeSearch(nombreVideoABuscar);
-});
 
       $(document).ready(app.init);
